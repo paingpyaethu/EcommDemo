@@ -9,6 +9,8 @@ import Animated, {
 import {ThemedButton, ThemedText} from '@/components/atoms';
 import {IOnboardingData} from '@/constant';
 import {useNavigation} from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { setIsAlreadyLaunch } from '@/store/features/user/useSlice';
 
 const {width, height} = Dimensions.get('window');
 
@@ -20,8 +22,10 @@ interface OnboardingItemProps {
 
 const OnboardingItem = ({item, index, translateX}: OnboardingItemProps) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const onPressGetStarted = () => {
+    dispatch(setIsAlreadyLaunch({ isAlreadyLaunch: true }));
     navigation.reset({
       index: 0,
       routes: [{ name: 'AuthStack' }],

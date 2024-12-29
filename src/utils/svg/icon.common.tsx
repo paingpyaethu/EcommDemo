@@ -2,16 +2,20 @@ import * as React from 'react';
 import Svg, {G, Path, Defs, ClipPath, SvgProps} from 'react-native-svg';
 
 type ColorSchemeType = {
-	colorScheme: 'dark' | 'light';
+  colorScheme: 'dark' | 'light';
 };
 
 export const EyeOffIcon = ({
-	colorScheme,
-	...props
+  colorScheme,
+  ...props
 }: ColorSchemeType & SvgProps) => (
-  <Svg className='w-10 h-10 md:w-16 md:h-16' fill='none' viewBox="-12 -12 48 48" {...props}>
+  <Svg
+    className="w-10 h-10 md:w-16 md:h-16"
+    fill="none"
+    viewBox="-12 -12 48 48"
+    {...props}>
     <G
-      stroke={colorScheme === 'light' ? "#4b5563" : '#9ca3af'}
+      stroke={colorScheme === 'light' ? '#4b5563' : '#9ca3af'}
       strokeLinecap="round"
       strokeWidth={2.5}
       clipPath="url(#a)">
@@ -26,5 +30,25 @@ export const EyeOffIcon = ({
         <Path fill="#fff" d="M0 0h24v24H0z" />
       </ClipPath>
     </Defs>
+  </Svg>
+);
+
+export const EyeIcon = ({
+  colorScheme,
+  ...props
+}: ColorSchemeType & SvgProps) => (
+  <Svg
+    className="w-10 h-10 md:w-16 md:h-16"
+    fill="none"
+    viewBox="-12 -12 48 48"
+    {...props}>
+    <G
+      stroke={colorScheme === 'light' ? '#4b5563' : '#9ca3af'}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}>
+      <Path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+      <Path d="M12.001 5C7.524 5 3.733 7.943 2.46 12c1.274 4.057 5.065 7 9.542 7 4.478 0 8.268-2.943 9.542-7-1.274-4.057-5.064-7-9.542-7Z" />
+    </G>
   </Svg>
 );

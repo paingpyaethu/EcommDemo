@@ -3,7 +3,7 @@ import {TextInput, TouchableOpacity, View} from 'react-native';
 import {cn} from '@/utils/twutil';
 import {cva, type VariantProps} from 'class-variance-authority';
 import { ThemedText } from '@/components/atoms';
-import {EyeOffIcon} from '@/utils/svg/icon.common';
+import {EyeIcon, EyeOffIcon} from '@/utils/svg/icon.common';
 import {useColorScheme} from 'nativewind';
 import {useController, useFormContext} from 'react-hook-form';
 
@@ -106,7 +106,7 @@ const ThemedTextInput = React.forwardRef<
               className="absolute right-0 top-2"
               onPress={() => setPasswordVisible(prev => !prev)}>
               {isPasswordVisible ? (
-                <EyeOffIcon {...{colorScheme}} />
+                <EyeIcon {...{colorScheme}} />
               ) : (
                 <EyeOffIcon {...{colorScheme}} />
               )}

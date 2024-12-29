@@ -4,6 +4,7 @@ import { StackNavigationProp, StackScreenProps } from "@react-navigation/stack";
 type RootStackParamList = {
   Onboarding: undefined,
   AuthStack: NavigatorScreenParams<AuthStackParamList>;
+  BottomTabs: undefined,
 };
 
 // ***** Auth Stack ***** //
