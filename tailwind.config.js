@@ -13,8 +13,11 @@ module.exports = {
       colors: {
         'ecomm-primary': '#8F5F43',
         'ecomm-primary-dark': '#390B12',
-        'ecomm-black': '#272422',
-        'ecomm-grey': '#9D9EA3',
+        'ecomm-black': '#0D0D0D',
+        'ecomm-grey': '#9299A3',
+        'ecomm-text-black': '#272422',
+        'ecomm-text-error': '#D02828',
+        'ecomm-text-error-dark': '#FF8C8C',        
       },
     },
   },

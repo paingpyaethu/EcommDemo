@@ -10,11 +10,12 @@ const textVariants = cva('text-sm', {
       primary: /* tw */ 'text-ecomm-primary dark:text-ecomm-primary-dark',
       lightGrey: /* tw */ 'text-ecomm-grey',
 			grey: /* tw */ 'text-gray-700 dark:text-gray-300',
-			button: /* tw */ 'text-white'
+			button: /* tw */ 'text-white',
+			error: /* tw */ 'text-ecomm-text-error dark:text-ecomm-text-error-dark'
     },
     size: {
       default: /* tw */ 'text-sm md:text-2xl',
-      xs_12: /* tw */ 'text-xs',
+      xs_12: /* tw */ 'text-xs md:text-lg',
       md_16: /* tw */ 'text-base',
       lg_18: /* tw */ 'text-lg',
       xl_20: /* tw */ 'text-xl md:text-3xl',

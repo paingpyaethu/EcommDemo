@@ -1,6 +1,3 @@
-import {ThemedButton, ThemedText} from '@/components/atoms';
-import {IOnboardingData} from '@/constant';
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {View, StyleSheet, Dimensions} from 'react-native';
 import Animated, {
@@ -9,6 +6,9 @@ import Animated, {
   Extrapolation,
   SharedValue,
 } from 'react-native-reanimated';
+import {ThemedButton, ThemedText} from '@/components/atoms';
+import {IOnboardingData} from '@/constant';
+import {useNavigation} from '@react-navigation/native';
 
 const {width, height} = Dimensions.get('window');
 
@@ -20,6 +20,13 @@ interface OnboardingItemProps {
 
 const OnboardingItem = ({item, index, translateX}: OnboardingItemProps) => {
   const navigation = useNavigation();
+
+  const onPressGetStarted = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'AuthStack' }],
+    });
+  };
 
   const animatedStyle = useAnimatedStyle(() => {
     const scale = interpolate(
@@ -39,18 +46,22 @@ const OnboardingItem = ({item, index, translateX}: OnboardingItemProps) => {
         resizeMode="contain"
       />
       <ThemedText
-        size={'xl_20'}
         variant={'primary'}
-        className="font-Montserrat_Bold dark:text-ecomm-primary my-2">
+        size={'xl_20'}
+        weight={'bold'}
+        className="dark:text-ecomm-primary my-2">
         {item.title}
       </ThemedText>
       <ThemedText
-        variant={'grey'}
-        className="font-Montserrat_Medium dark:text-ecomm-grey text-center">
+        variant={'lightGrey'}
+        weight={'medium'}
+        className="dark:text-ecomm-grey text-center">
         {item.description}
       </ThemedText>
       {index === 2 && (
-        <ThemedButton className="mt-10" onPress={() => navigation.navigate('Login')}>
+        <ThemedButton
+          className="mt-10"
+          onPress={onPressGetStarted}>
           <ThemedText className="text-white">Get Started</ThemedText>
         </ThemedButton>
       )}

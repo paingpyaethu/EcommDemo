@@ -5,7 +5,7 @@ import ApplicationNavigator from './navigators/ApplicationNavigator';
 const App = () => {
   return (
     <>
-      <StatusBar translucent backgroundColor={'transparent'} barStyle={'dark-content'}/>
+      <StatusBar backgroundColor={'transparent'} />
       <ApplicationNavigator />
     </>
   );

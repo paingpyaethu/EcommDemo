@@ -1,9 +1,19 @@
-import { StackScreenProps } from "@react-navigation/stack";
+import { NavigatorScreenParams } from "@react-navigation/native";
+import { StackNavigationProp, StackScreenProps } from "@react-navigation/stack";
 
 type RootStackParamList = {
   Onboarding: undefined,
-  Login: undefined,
+  AuthStack: NavigatorScreenParams<AuthStackParamList>;
 };
+
+// ***** Auth Stack ***** //
+type AuthStackParamList = {
+  Login: undefined,
+  Signup: undefined,
+}
+type AuthStackNavigationProp = StackNavigationProp<AuthStackParamList>;
+// ***** Auth Stack ***** //
+
 
 
 type RootStackScreenProps<T extends keyof RootStackParamList> =

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedScrollHandler,
@@ -8,7 +8,7 @@ import {OnboardingItem} from '@/components/molecules';
 import {OnboardingIndicator} from '@/components/atoms';
 import {onboardingData} from '@/constant';
 
-const OnboardingScreen: React.FC = () => {
+const OnboardingScreen = () => {
   const translateX = useSharedValue(0);
 
   const scrollHandler = useAnimatedScrollHandler(event => {
