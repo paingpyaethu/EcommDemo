@@ -4,7 +4,7 @@ import { cn } from '@/utils/twutil';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 const buttonVariants = cva(
-	'items-center justify-center rounded-md md:rounded-xl w-full',
+	'items-center justify-center rounded-lg md:rounded-xl w-full',
 	{
 		variants: {
 			variant: {
