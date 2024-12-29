@@ -2,7 +2,7 @@ import {AuthTokenKey, authStorage} from '@/utils/storage';
 import {api} from '../api';
 import {login_api, register_api} from '@/api/config/endpoint';
 import {setIsAuthenticated} from '../user/useSlice';
-import {resetRoot} from '@/utils/navigationUtil';
+import {resetAndNavigate} from '@/utils/navigationUtil';
 
 interface IUserInfoResType {
   success: boolean;
@@ -45,7 +45,7 @@ export const authApi = api.injectEndpoints({
           const result = await queryFulfilled;
           await authStorage.setItem(AuthTokenKey, result.data.accessToken);
           dispatch(setIsAuthenticated({isAuthenticated: true}));
-          resetRoot({index: 0, routes: [{name: 'BottomTabs'}]});
+          resetAndNavigate('BottomTabs');
         } catch (error) {
           console.log('🚀 ~ onQueryStarted ~ error:', error);
         }

@@ -9,9 +9,9 @@ import {LoginFormValues, loginFormSchema} from '@/types/schemas/auth';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {ThemedTextInput} from '@/components/molecules';
 import {useLoginMutation} from '@/store/features/auth/authApi';
-import { isTablet } from 'react-native-device-info';
-import { showToast } from '@/utils/toastConfig';
-import { useHeaderHeight } from '@react-navigation/elements';
+import {isTablet} from 'react-native-device-info';
+import {showToast} from '@/utils/toastConfig';
+import {useHeaderHeight} from '@react-navigation/elements';
 
 const LoginScreen = () => {
   const navigation = useNavigation<AuthStackNavigationProp>();
@@ -36,15 +36,15 @@ const LoginScreen = () => {
       if (payload.success) {
         showToast({
           text1: 'Login successful',
-          topOffset: headerHeight
-        })
+          topOffset: headerHeight,
+        });
       }
     } catch (error: any) {
       showToast({
         type: 'error',
-        text1: error.data.message ?? 'Something went wrong!',
-        topOffset: headerHeight
-      })
+        text1: error?.data?.message ?? 'Something went wrong!',
+        topOffset: headerHeight,
+      });
     }
   };
   return (
@@ -62,17 +62,27 @@ const LoginScreen = () => {
             </View>
 
             <ThemedTextInput
+              testID="email"
               label="Email"
               name="email"
               keyboardType="email-address"
             />
-            <ThemedTextInput label="Password" name="password" isPassword />
+            <ThemedTextInput
+              testID="password"
+              label="Password"
+              name="password"
+              isPassword
+            />
 
             <ThemedButton
+              testID="loginButton"
               className="mt-10"
               onPress={form.handleSubmit(onSubmit)}>
               {isLoading ? (
-                <ActivityIndicator color={'#fff'} size={isTablet() ? 'large' : 'small'} />
+                <ActivityIndicator
+                  color={'#fff'}
+                  size={isTablet() ? 'large' : 'small'}
+                />
               ) : (
                 <ThemedText variant={'button'}>Login</ThemedText>
               )}
