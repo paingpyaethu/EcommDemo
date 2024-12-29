@@ -7,6 +7,11 @@ type RootStackParamList = {
   BottomTabs: undefined,
 };
 
+type BottomTabParamList = {
+  HomeTab: undefined;
+  FavouriteTab: undefined;
+};
+
 // ***** Auth Stack ***** //
 type AuthStackParamList = {
   Login: undefined,

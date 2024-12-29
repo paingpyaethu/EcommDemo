@@ -1,13 +1,14 @@
 import React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { NavigationContainer } from '@react-navigation/native'
-import { HomeScreen, OnboardingScreen } from '@/screens';
+import { OnboardingScreen } from '@/screens';
 import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParamList } from '@/types/navigation/root';
 import { AuthStackNavigator } from './stacks';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store';
 import { navigationRef } from '@/utils/navigationUtil';
+import BottomTabNavigator from './tabs/BottomTabNavigator';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -30,7 +31,7 @@ const ApplicationNavigator = () => {
       <Stack.Navigator initialRouteName={initialRouteName} screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Onboarding" component={OnboardingScreen} />
         <Stack.Screen name="AuthStack" component={AuthStackNavigator} />
-        <Stack.Screen name="BottomTabs" component={HomeScreen} />
+        <Stack.Screen name="BottomTabs" component={BottomTabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
    </SafeAreaProvider>
