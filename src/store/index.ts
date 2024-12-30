@@ -3,7 +3,7 @@ import {setupListeners} from '@reduxjs/toolkit/query';
 import {persistReducer, persistStore, Storage} from 'redux-persist';
 import {MMKV} from 'react-native-mmkv';
 import { api } from './features/api';
-import user from "@/store/features/user/useSlice";
+import user from "@/store/features/user/userSlice";
 
 const reducers = combineReducers({
   [api.reducerPath]: api.reducer,

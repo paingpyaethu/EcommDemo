@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActivityIndicator, View} from 'react-native';
+import {ActivityIndicator, Dimensions, View} from 'react-native';
 import {ThemedButton, ThemedText} from '@/components/atoms';
 import {SafeScreen, KeyboardAvoidingLayout} from '@/components/template';
 import {useNavigation} from '@react-navigation/native';
@@ -12,6 +12,8 @@ import {useLoginMutation} from '@/store/features/auth/authApi';
 import {isTablet} from 'react-native-device-info';
 import {showToast} from '@/utils/toastConfig';
 import {useHeaderHeight} from '@react-navigation/elements';
+
+const {height} = Dimensions.get('window');
 
 const LoginScreen = () => {
   const navigation = useNavigation<AuthStackNavigationProp>();
@@ -36,14 +38,14 @@ const LoginScreen = () => {
       if (payload.success) {
         showToast({
           text1: 'Login successful',
-          topOffset: headerHeight,
+          topOffset: headerHeight + height * 0.03,
         });
       }
     } catch (error: any) {
       showToast({
         type: 'error',
         text1: error?.data?.message ?? 'Something went wrong!',
-        topOffset: headerHeight,
+        topOffset: headerHeight + height * 0.03,
       });
     }
   };

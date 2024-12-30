@@ -23,7 +23,7 @@ export const HomeTabIcon = ({
   ...props
 }: TabProp & SvgProps) => (
   <Svg
-    className="w-16 h-16 md:w-24 md:h-24"
+    className="w-16 h-16 md:w-32 md:h-32"
     fill="none"
     viewBox="-19.2 -19.2 62.4 62.4"
     {...props}>
@@ -42,7 +42,7 @@ export const FavouriteTabIcon = ({
   ...props
 }: TabProp & SvgProps) => (
   <Svg
-    className="w-16 h-16 md:w-24 md:h-24"
+    className="w-16 h-16 md:w-32 md:h-32"
     fill="none"
     viewBox="-19.2 -19.2 62.4 62.4"
     {...props}>

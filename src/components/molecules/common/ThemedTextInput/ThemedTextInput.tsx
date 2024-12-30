@@ -8,7 +8,7 @@ import {useColorScheme} from 'nativewind';
 import {useController, useFormContext} from 'react-hook-form';
 
 const textInputVariants = cva(
-  'font-Montserrat_Regular border rounded-lg md:rounded-xl p-2 md:p-4',
+  'font-Montserrat_Regular border rounded-lg md:rounded-xl p-2 md:p-6',
   {
     variants: {
       variant: {
@@ -16,7 +16,7 @@ const textInputVariants = cva(
       },
       size: {
         default:
-          /* tw */ 'text-sm md:text-xl text-ecomm-text-black dark:text-white  h-14 md:h-20 leading-4 md:leading-6',
+          /* tw */ 'text-sm md:text-2xl text-ecomm-text-black dark:text-white h-12 md:h-20 leading-4 md:leading-7',
       },
       state: {
         default: '',
@@ -103,7 +103,7 @@ const ThemedTextInput = React.forwardRef<
 
           {isPassword && (
             <TouchableOpacity
-              className="absolute right-0 top-2"
+              className="absolute right-0 top-1"
               onPress={() => setPasswordVisible(prev => !prev)}>
               {isPasswordVisible ? (
                 <EyeIcon {...{colorScheme}} />

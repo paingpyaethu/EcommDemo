@@ -7,7 +7,7 @@ const textVariants = cva('text-sm', {
   variants: {
     variant: {
       default: /* tw */ 'text-ecomm-text-black dark:text-white',
-      primary: /* tw */ 'text-ecomm-primary dark:text-ecomm-primary-dark',
+      primary: /* tw */ 'text-ecomm-primary dark:text-ecomm-primary',
       lightGrey: /* tw */ 'text-ecomm-grey',
 			grey: /* tw */ 'text-gray-700 dark:text-gray-300',
 			button: /* tw */ 'text-white',
@@ -15,11 +15,11 @@ const textVariants = cva('text-sm', {
     },
     size: {
       default: /* tw */ 'text-sm md:text-2xl',
-      xs_12: /* tw */ 'text-xs md:text-lg',
-      md_16: /* tw */ 'text-base',
-      lg_18: /* tw */ 'text-lg',
-      xl_20: /* tw */ 'text-xl md:text-3xl',
-      xl_24: /* tw */ 'text-2xl md:text-4xl',
+      xs_12: /* tw */ 'text-xs md:text-xl',
+      md_16: /* tw */ 'text-base md:text-3xl',
+      lg_18: /* tw */ 'text-lg md:text-3xl',
+      xl_20: /* tw */ 'text-xl md:text-4xl',
+      xl_24: /* tw */ 'text-2xl md:text-5xl',
     },
     weight: {
       default: /* tw */ 'font-Montserrat_Regular',

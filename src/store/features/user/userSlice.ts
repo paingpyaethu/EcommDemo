@@ -26,7 +26,6 @@ const slice = createSlice({
       state.isAuthenticated = action.payload.isAuthenticated;
     },
     clearData: state => {
-      state.isAlreadyLaunch = false;
       state.isAuthenticated = false;
       authStorage.removeItem(AuthTokenKey);
     },

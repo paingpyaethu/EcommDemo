@@ -17,7 +17,7 @@ const customBaseQuery = async (
 
   const baseQuery = fetchBaseQuery({
     baseUrl: API_END_POINT,
-    headers: token ? { Authorization: `${token}` } : undefined,
+    headers: token ? { Authorization: `Bearer ${token}` } : undefined,
   });
 
   return baseQuery(args, api, extraOptions);
@@ -28,6 +28,6 @@ const staggeredBaseQuery = retry(customBaseQuery);
 export const api = createApi({
   baseQuery: staggeredBaseQuery,
   reducerPath: "api",
-  tagTypes: [],
+  tagTypes: ['Categories','Products'],
   endpoints: builder => ({}),
 });

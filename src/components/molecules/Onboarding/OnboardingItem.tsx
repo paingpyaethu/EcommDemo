@@ -10,7 +10,7 @@ import {ThemedButton, ThemedText} from '@/components/atoms';
 import {IOnboardingData} from '@/constant';
 import {useNavigation} from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
-import { setIsAlreadyLaunch } from '@/store/features/user/useSlice';
+import { setIsAlreadyLaunch } from '@/store/features/user/userSlice';
 
 const {width, height} = Dimensions.get('window');
 

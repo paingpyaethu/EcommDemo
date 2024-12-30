@@ -1,7 +1,7 @@
 import {AuthTokenKey, authStorage} from '@/utils/storage';
 import {api} from '../api';
 import {login_api, register_api} from '@/api/config/endpoint';
-import {setIsAuthenticated} from '../user/useSlice';
+import {setIsAuthenticated} from '../user/userSlice';
 import {resetAndNavigate} from '@/utils/navigationUtil';
 
 interface IUserInfoResType {
