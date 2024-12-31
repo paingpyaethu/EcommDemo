@@ -4,23 +4,24 @@ import {login_api, register_api} from '@/api/config/endpoint';
 import {setIsAuthenticated} from '../user/userSlice';
 import {resetAndNavigate} from '@/utils/navigationUtil';
 
-interface IUserInfoResType {
+interface IAuthInfoResType {
   success: boolean;
-  data: IUserInfoData;
+  data: IAuthUserInfoData;
   accessToken: string;
 }
 
-interface IUserInfoData {
+interface IAuthUserInfoData {
   id: string;
   name: string;
   email: string;
   role: string;
+  image: string;
 }
 
 export const authApi = api.injectEndpoints({
   endpoints: builder => ({
     register: builder.mutation<
-      IUserInfoResType,
+      IAuthInfoResType,
       {name: string; email: string; password: string}
     >({
       query: data => ({
@@ -31,7 +32,7 @@ export const authApi = api.injectEndpoints({
       extraOptions: {maxRetries: 0},
     }),
     login: builder.mutation<
-      IUserInfoResType,
+      IAuthInfoResType,
       {email: string; password: string}
     >({
       query: data => ({

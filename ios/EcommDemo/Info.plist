@@ -33,6 +33,10 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSCameraUsageDescription</key>
+	<string>EcommDemo App requires access to the camera to take photo for your profile</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>EcommDemo App requires access to your photo library to upload and display photos</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-Bold.ttf</string>

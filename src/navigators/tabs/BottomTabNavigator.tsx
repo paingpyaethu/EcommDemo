@@ -1,6 +1,6 @@
-import {FavouriteScreen, HomeScreen} from '@/screens';
+import {FavouriteScreen, HomeScreen, ProfileScreen} from '@/screens';
 import {BottomTabParamList} from '@/types/navigation/root';
-import { FavouriteTabIcon, HomeTabIcon } from '@/utils/svg/icon.bottomtab';
+import { HomeTabIcon, FavouriteTabIcon, ProfileTabIcon } from '@/utils/svg/icon.bottomtab';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {useColorScheme} from 'nativewind';
 import {Dimensions, Platform} from 'react-native';
@@ -38,6 +38,15 @@ const BottomTabNavigator = () => {
         options={{
           tabBarIcon: ({focused}) => (
             <FavouriteTabIcon colorScheme={colorScheme} focused={focused} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="ProfileTab"
+        component={ProfileScreen}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <ProfileTabIcon colorScheme={colorScheme} focused={focused} />
           ),
         }}
       />

@@ -77,7 +77,7 @@ const ThemedTextInput = React.forwardRef<
         <View className="relative mb-4 md:mb-8">
           <TextInput
             className={cn(
-              isDisabled && 'opacity-50 bg-gray-200',
+              isDisabled && 'bg-gray-400',
               textInputVariants({
                 variant,
                 size,

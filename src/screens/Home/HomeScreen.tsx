@@ -15,7 +15,7 @@ const HomeScreen = () => {
   return (
     <SafeScreen>
       <View className="flex-1 px-5 md:p-10">
-        <View className="flex-row items-center justify-between">
+        <View className="flex-row items-center justify-between my-4 md:my-8">
           <ThemedText variant={'primary'} size={'xl_24'} weight={'bold'}>
             Discover
           </ThemedText>

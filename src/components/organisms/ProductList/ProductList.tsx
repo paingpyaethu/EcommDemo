@@ -8,6 +8,7 @@ import {
   useGetProductsByCategoryQuery,
 } from '@/store/features/product/productApi';
 import EmptyData from '@/components/atoms/common/EmptyData/EmptyData';
+import {isTablet} from 'react-native-device-info';
 
 const ProductList = () => {
   const [categoryName, setCategoryName] = useState('All');
@@ -38,12 +39,24 @@ const ProductList = () => {
   };
 
   if (!isSuccess || !isCategoriesSuccess) {
-    return <ActivityIndicator style={styles.loader} />;
+    return (
+      <ActivityIndicator
+        className="flex-1"
+        size={isTablet() ? 'large' : 'small'}
+        color={'#8F5F43'}
+      />
+    );
   }
 
   const renderFooter = () => {
     if (!isFetching) return null;
-    return <ActivityIndicator style={styles.loader} />;
+    return (
+      <ActivityIndicator
+        className="my-3 md:my-6"
+        size={isTablet() ? 'large' : 'small'}
+        color={'#8F5F43'}
+      />
+    );
   };
 
   return (
@@ -80,14 +93,6 @@ const ProductList = () => {
 const styles = StyleSheet.create({
   loader: {
     marginVertical: 20,
-  },
-  errorContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  errorText: {
-    color: 'red',
   },
 });
 

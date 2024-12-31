@@ -2,12 +2,14 @@ import {configureStore, combineReducers} from '@reduxjs/toolkit';
 import {setupListeners} from '@reduxjs/toolkit/query';
 import {persistReducer, persistStore, Storage} from 'redux-persist';
 import {MMKV} from 'react-native-mmkv';
-import { api } from './features/api';
-import user from "@/store/features/user/userSlice";
+import {api} from './features/api';
+import user from '@/store/features/user/userSlice';
+import theme from '@/store/features/theme/themeSlice';
 
 const reducers = combineReducers({
   [api.reducerPath]: api.reducer,
   user,
+  theme,
 });
 
 const storage = new MMKV();
@@ -29,7 +31,7 @@ export const reduxStorage: Storage = {
 const persistConfig = {
   key: 'root',
   storage: reduxStorage,
-  whitelist: ['user'],
+  whitelist: ['user', 'theme'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
