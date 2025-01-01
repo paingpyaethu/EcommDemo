@@ -1,9 +1,4 @@
-import {
-  CartScreen,
-  FavouriteScreen,
-  HomeScreen,
-  ProfileScreen,
-} from '@/screens';
+import {CartScreen, FavouriteScreen} from '@/screens';
 import {BottomTabParamList} from '@/types/navigation/root';
 import {
   HomeTabIcon,
@@ -14,7 +9,7 @@ import {
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {useColorScheme} from 'nativewind';
 import {Dimensions, Platform, View} from 'react-native';
-import {HomeTabStackNavigator} from '../stacks';
+import {HomeTabStackNavigator, ProfileTabStackNavigator} from '../stacks';
 import {useSelector} from 'react-redux';
 import {selectCount} from '@/store/features/cart/cartSlice';
 import {ThemedText} from '@/components/atoms';
@@ -75,8 +70,8 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="ProfileTab"
-        component={ProfileScreen}
+        name="ProfileTabStack"
+        component={ProfileTabStackNavigator}
         options={{
           tabBarIcon: ({focused}) => (
             <ProfileTabIcon colorScheme={colorScheme} focused={focused} />

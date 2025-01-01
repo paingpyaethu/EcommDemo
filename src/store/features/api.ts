@@ -57,7 +57,7 @@ const customBaseQuery = async (
 
   const result = await baseQuery(args, api, extraOptions);
 
-	if (result.error && (result.error.status === 500 || result.error.status === 401)) {
+	if (result.error && (result.error.status === 401)) {
 		Alert.alert('Warning', 'Your session has expired. Please log in again.');
 		api.dispatch(clearData());
 		resetAndNavigate('AuthStack');
@@ -73,6 +73,6 @@ const staggeredBaseQuery = retry(customBaseQuery, {
 export const api = createApi({
   baseQuery: staggeredBaseQuery,
   reducerPath: "api",
-  tagTypes: ['Categories','Products', 'Users'],
+  tagTypes: ['Categories','Products', 'Users', 'Orders'],
   endpoints: builder => ({}),
 });

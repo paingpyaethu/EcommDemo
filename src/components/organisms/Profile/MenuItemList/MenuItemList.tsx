@@ -3,11 +3,15 @@ import {View} from 'react-native';
 import {MyDetailIcon, OrderIcon} from '@/utils/svg/icon.profile';
 import {MenuItem} from '@/components/molecules';
 import {useColorScheme} from 'nativewind';
+import {useNavigation} from '@react-navigation/native';
+import {ProfileTabStackNavigationProp} from '@/types/navigation/root';
 
 interface MenuItemListProps {
   onPressMyDetail: () => void;
 }
 const MenuItemList = ({onPressMyDetail}: MenuItemListProps) => {
+  const navigation = useNavigation<ProfileTabStackNavigationProp>();
+
   const {colorScheme} = useColorScheme();
 
   return (
@@ -20,7 +24,9 @@ const MenuItemList = ({onPressMyDetail}: MenuItemListProps) => {
           />
         }
         text="My Orders"
-        onPress={() => {}}
+        onPress={() => {
+          navigation.navigate('OrderScreen');
+        }}
       />
       <View className="border-b border-b-ecomm-grey mx-4 md:mx-8" />
       <MenuItem

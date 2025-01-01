@@ -82,6 +82,9 @@ const cartSlice = createSlice({
         }
       }
     },
+    clearCart: (state) => {
+      state.cartList = [];
+    },
   },
   selectors: {
     selectCount: (state: CartState) => {
@@ -94,7 +97,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const {addCart, updateCart, deleteCart} = cartSlice.actions;
+export const {addCart, updateCart, deleteCart, clearCart} = cartSlice.actions;
 export const {selectCount} = cartSlice.selectors;
 
 export default cartSlice.reducer;

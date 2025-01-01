@@ -3,22 +3,23 @@ import {
   StackNavigationOptions,
   createStackNavigator,
 } from '@react-navigation/stack';
-import {HomeScreen, ProductDetailScreen} from '@/screens';
-import {HomeTabStackParamList} from '@/types/navigation/root';
+import { ProfileScreen} from '@/screens';
+import {ProfileTabStackParamList} from '@/types/navigation/root';
 import {Dimensions, Platform} from 'react-native';
 import {useTheme} from '@/context/ThemeProvider';
 import {isTablet} from 'react-native-device-info';
+import OrderScreen from '@/screens/Profile/Orders/OrderScreen';
 
-const Stack = createStackNavigator<HomeTabStackParamList>();
+const Stack = createStackNavigator<ProfileTabStackParamList>();
 
 const {height} = Dimensions.get('window');
 
-const HomeTabStackNavigator = () => {
+const ProfileTabStackNavigator = () => {
   const {colorScheme} = useTheme();
 
   const headerOption: StackNavigationOptions = {
     headerStyle: {
-      backgroundColor: colorScheme === 'light' ? 'white' : '#0D0D0D',
+      backgroundColor: colorScheme === 'light' ? 'white' : 'black',
       height: Platform.OS == 'ios' ? height * 0.12 : height * 0.08,
     },
     headerTintColor: colorScheme === 'light' ? '#272422' : 'white',
@@ -34,17 +35,17 @@ const HomeTabStackNavigator = () => {
         headerBackButtonDisplayMode: 'minimal',
       }}>
       <Stack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
+        name="ProfileScreen"
+        component={ProfileScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="ProductDetailScreen"
-        component={ProductDetailScreen}
-        options={headerOption}
+        name="OrderScreen"
+        component={OrderScreen}
+        options={{...headerOption, headerTitle: 'My Orders'}}
       />
     </Stack.Navigator>
   );
 };
 
-export default HomeTabStackNavigator;
+export default ProfileTabStackNavigator;
