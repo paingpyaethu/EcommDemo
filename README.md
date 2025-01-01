@@ -1,79 +1,125 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# EcommDemo Mobile Application
 
-# Getting Started
+## Overview
+EcommDemo is a mobile application designed for demonstration purposes. Follow the instructions below to set up, run, and troubleshoot the application on both Android and iOS platforms.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Prerequisites
+- Node.js installed on your machine.
+- Yarn package manager installed.
+- Android Studio (for Android development).
+- Xcode with Command Line Tools (for iOS development).
 
-## Step 1: Start the Metro Server
+## Installation Instructions
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
-
-To start Metro, run the following command from the _root_ of your React Native project:
-
+### Clone the Repository
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+git clone https://github.com/paingpyaethu/EcommDemo
 ```
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
+### Switch to the Correct Branch
+The latest branch is `dev`. Ensure you are on this branch:
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+git checkout dev
 ```
 
-### For iOS
-
+### Remove Git History (Optional)
+If required, you can remove the Git history:
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+rm -rf .git
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+### Install Dependencies
+Install the necessary dependencies using Yarn:
+```bash
+yarn install
+```
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+### Set Up the `.env` File
+Before running the application, create a `.env` file in the root directory and fill it with the required information. Here is an example:
 
-## Step 3: Modifying your App
+```env
+API_END_POINT: http://[HOST FROM BACKEND]:[PORT FROM BACKEND]/[API_URL FROM BACKEND]
+PHOTO_URL_END_POINT: http://[HOST FROM BACKEND]:[PORT FROM BACKEND]/api/storage/images
+```
 
-Now that you have successfully run the app, let's modify it.
+#### Example Configuration:
+```env
+API_END_POINT: http://192.168.8.100:8000/api/demo-ecomm/v1
+PHOTO_URL_END_POINT: http://192.168.8.100:8000/api/storage/images
+```
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+## Running the Application
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+### General Commands
+- For Android:
+  ```bash
+  yarn android
+  ```
+- For iPhone 15:
+  ```bash
+  yarn iphone15
+  ```
+- For iPad:
+  ```bash
+  yarn ipad
+  ```
+- For iOS (general):
+  ```bash
+  yarn ios
+  ```
 
-## Congratulations! :tada:
+### Android Specific Instructions
+If you encounter issues during the build process:
+1. Clean the Android build files:
+   ```bash
+   yarn clean:android
+   yarn clean:gradle
+   ```
+2. Re-run the Android app:
+   ```bash
+   yarn android
+   ```
 
-You've successfully run and modified your React Native App. :partying_face:
+#### Optional
+You can build the app or sync with the Gradle file using Android Studio to ensure a clean build.
 
-### Now what?
+### iOS Specific Instructions
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+1. Install CocoaPods dependencies:
+   ```bash
+   yarn pod:install
+   ```
+2. Run the iOS simulator with a specific device:
+   ```bash
+   yarn ios
+   ```
+3. Ensure the correct `NODE_BINARY` path is set in `.xcode.env.local`.
 
-# Troubleshooting
+#### Troubleshooting iOS Build Issues
+If you encounter build issues:
+1. Clean the iOS build files:
+   ```bash
+   yarn clean:ios
+   ```
+2. Delete `Gemfile.lock` and reinstall the dependencies:
+   ```bash
+   rm Gemfile.lock
+   bundle install
+   ```
+3. Reinstall CocoaPods dependencies:
+   ```bash
+   yarn pod:install
+   ```
+4. Rebuild the app.
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Important Notes
+- After modifying the `API_END_POINT` or `PHOTO_URL_END_POINT` in the `.env` file, restart the terminal and run the following command to reset the cache:
+  ```bash
+  yarn start --reset-cache
+  ```
+  Reload the app afterward.
 
-# Learn More
+## Conclusion
+Congratulations! You have successfully set up and run the EcommDemo application. If you encounter any issues or have any questions, feel free to reach out.
 
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Thank you!
