@@ -5,11 +5,13 @@ import {MMKV} from 'react-native-mmkv';
 import {api} from './features/api';
 import user from '@/store/features/user/userSlice';
 import theme from '@/store/features/theme/themeSlice';
+import carts from '@/store/features/cart/cartSlice';
 
 const reducers = combineReducers({
   [api.reducerPath]: api.reducer,
   user,
   theme,
+  carts,
 });
 
 const storage = new MMKV();
@@ -31,7 +33,7 @@ export const reduxStorage: Storage = {
 const persistConfig = {
   key: 'root',
   storage: reduxStorage,
-  whitelist: ['user', 'theme'],
+  whitelist: ['user', 'theme', 'carts'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

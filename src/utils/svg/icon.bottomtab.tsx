@@ -53,6 +53,32 @@ export const FavouriteTabIcon = ({
   </Svg>
 );
 
+export const CartTabIcon = ({
+  focused,
+  colorScheme,
+  ...props
+}: TabProp & SvgProps) => (
+  <Svg
+    className="w-16 h-16 md:w-32 md:h-32"
+    fill="none"
+    viewBox="-19.2 -19.2 62.4 62.4"
+    {...props}>
+    <G
+      stroke={focused ? color[0][colorScheme] : color[1][colorScheme]}
+      strokeWidth={1.5}>
+      <Path d="M7.5 18a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM16.5 18a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
+      <Path
+        strokeLinecap="round"
+        d="M11 9H8M2 3l.265.088c1.32.44 1.98.66 2.357 1.184C5 4.796 5 5.492 5 6.883V9.5c0 2.828 0 4.243.879 5.121.878.879 2.293.879 5.121.879h2m6 0h-2"
+      />
+      <Path
+        strokeLinecap="round"
+        d="M5 6h3m-2.5 7h10.522c.96 0 1.439 0 1.815-.248.375-.248.564-.688.942-1.57l.429-1c.81-1.89 1.214-2.833.77-3.508C19.532 6 18.505 6 16.45 6H12"
+      />
+    </G>
+  </Svg>
+);
+
 export const ProfileTabIcon = ({
   focused,
   colorScheme,
@@ -63,12 +89,11 @@ export const ProfileTabIcon = ({
     fill="none"
     viewBox="-19.2 -19.2 62.4 62.4"
     {...props}>
-     <G
+    <G
       stroke={focused ? color[0][colorScheme] : color[1][colorScheme]}
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth={1.5}
-    >
+      strokeWidth={1.5}>
       <Path d="M12.12 12.78a.963.963 0 0 0-.24 0 3.27 3.27 0 0 1-3.16-3.27c0-1.81 1.46-3.28 3.28-3.28a3.276 3.276 0 0 1 .12 6.55ZM18.74 19.38A9.934 9.934 0 0 1 12 22c-2.6 0-4.96-.99-6.74-2.62.1-.94.7-1.86 1.77-2.58 2.74-1.82 7.22-1.82 9.94 0 1.07.72 1.67 1.64 1.77 2.58Z" />
       <Path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z" />
     </G>

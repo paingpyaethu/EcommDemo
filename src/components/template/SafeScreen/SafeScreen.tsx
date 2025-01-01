@@ -7,7 +7,8 @@ function SafeScreen({children}: PropsWithChildren) {
   return (
     <SafeAreaView
       className="flex-1 bg-white dark:bg-ecomm-black"
-      style={{paddingTop: headerHeight}}>
+      // style={{paddingTop: headerHeight}}
+      >
       {children}
     </SafeAreaView>
   );

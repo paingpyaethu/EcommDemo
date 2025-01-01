@@ -35,7 +35,7 @@ export const productApi = api.injectEndpoints({
         return `${endpointName}-${queryArgs.categoryName}`;
       },
       merge: (currentCache, newItems, {arg: {page}}) => {
-      // ***** Merge new data with the existing cache for pagination ***** //
+        // ***** Merge new data with the existing cache for pagination ***** //
         return {
           ...currentCache,
           data:
@@ -62,8 +62,15 @@ export const productApi = api.injectEndpoints({
             ]
           : ['Products'],
     }),
+    getProductById: builder.query<IProductDetailData, number>({
+      query: productId => `products/${productId}`,
+      transformResponse: (response: IProductDetailResType) => response.data,
+    }),
   }),
 });
 
-export const {useGetCategoriesQuery, useGetProductsByCategoryQuery} =
-  productApi;
+export const {
+  useGetCategoriesQuery,
+  useGetProductsByCategoryQuery,
+  useGetProductByIdQuery,
+} = productApi;

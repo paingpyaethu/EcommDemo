@@ -8,6 +8,7 @@ const textVariants = cva('text-sm', {
     variant: {
       default: /* tw */ 'text-ecomm-text-black dark:text-white',
       primary: /* tw */ 'text-ecomm-primary dark:text-ecomm-primary',
+      green: /* tw */ 'text-emerald-700 dark:text-emerald-600',
       lightGrey: /* tw */ 'text-ecomm-grey',
 			grey: /* tw */ 'text-gray-700 dark:text-gray-300',
 			button: /* tw */ 'text-white',

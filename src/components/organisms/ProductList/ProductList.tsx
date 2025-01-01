@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {View, ActivityIndicator, StyleSheet} from 'react-native';
 import {FlashList} from '@shopify/flash-list';
 import Categories from '@/components/molecules/Home/Categories/Categories';
@@ -9,8 +9,13 @@ import {
 } from '@/store/features/product/productApi';
 import EmptyData from '@/components/atoms/common/EmptyData/EmptyData';
 import {isTablet} from 'react-native-device-info';
+import {HomeTabStackNavigationProp} from '@/types/navigation/root';
 
-const ProductList = () => {
+const ProductList = ({
+  navigation,
+}: {
+  navigation: HomeTabStackNavigationProp;
+}) => {
   const [categoryName, setCategoryName] = useState('All');
   const [page, setPage] = useState(1);
 
@@ -38,15 +43,16 @@ const ProductList = () => {
     }
   };
 
-  if (!isSuccess || !isCategoriesSuccess) {
-    return (
-      <ActivityIndicator
-        className="flex-1"
-        size={isTablet() ? 'large' : 'small'}
-        color={'#8F5F43'}
-      />
-    );
-  }
+  const goToProductDetail = useCallback((productId: number) => {
+    navigation.navigate('ProductDetailScreen', {
+      productId,
+    });
+  }, []);
+
+  const renderItem = useCallback(
+    ({item}: {item: IProductsData}) => <ProductItem product={item} onPressProduct={goToProductDetail}/>,
+    [],
+  );
 
   const renderFooter = () => {
     if (!isFetching) return null;
@@ -59,7 +65,13 @@ const ProductList = () => {
     );
   };
 
-  return (
+  return !isSuccess || !isCategoriesSuccess ? (
+    <ActivityIndicator
+      className="flex-1"
+      size={isTablet() ? 'large' : 'small'}
+      color={'#8F5F43'}
+    />
+  ) : (
     <View className="flex-1 pt-2 md:pt-4">
       <View>
         <Categories
@@ -72,7 +84,7 @@ const ProductList = () => {
         <FlashList
           showsVerticalScrollIndicator={false}
           data={products}
-          renderItem={({item}) => <ProductItem product={item} />}
+          renderItem={renderItem}
           refreshing={isFetching}
           onRefresh={refetch}
           onEndReached={handleLoadMore}

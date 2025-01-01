@@ -100,3 +100,120 @@ export const ContrastIcon = ({
     </G>
   </Svg>
 );
+
+export const RatingIcon = (props: SvgProps) => (
+  <Svg
+    fill="none"
+    className="w-3 h-3 md:w-6 md:h-6"
+    viewBox="0 0 24 24"
+    {...props}>
+    <Path
+      fill="#eab308"
+      d="m12 17.328-5.403 3.286a.75.75 0 0 1-1.12-.813l1.456-6.155-4.796-4.123a.75.75 0 0 1 .428-1.316l6.303-.517 2.44-5.835a.75.75 0 0 1 1.384 0l2.44 5.835 6.303.517a.75.75 0 0 1 .427 1.316l-4.795 4.123 1.456 6.155a.75.75 0 0 1-1.12.813L12 17.328z"
+    />
+  </Svg>
+);
+
+export const PlusIcon = (props: SvgProps) => (
+  <Svg
+    fill="none"
+    className="w-6 h-6 md:w-12 md:h-12"
+    viewBox="0 0 32 32"
+    {...props}>
+    <Path
+      fill={props.fill}
+      fillRule="evenodd"
+      d="M22 17h-5v5a1.001 1.001 0 0 1-2 0v-5h-5a1.001 1.001 0 0 1 0-2h5v-5a1.001 1.001 0 0 1 2 0v5h5a1.001 1.001 0 0 1 0 2ZM16 0C7.163 0 0 7.16 0 16s7.163 16 16 16 16-7.16 16-16S24.837 0 16 0Z"
+    />
+  </Svg>
+);
+
+export const MinusIcon = (props: SvgProps) => (
+  <Svg
+    fill="none"
+    className="w-6 h-6 md:w-12 md:h-12"
+    viewBox="0 0 32 32"
+    {...props}>
+    <Path
+      fill={props.fill}
+      fillRule="evenodd"
+      d="M22 17H10a1.001 1.001 0 0 1 0-2h12a1.001 1.001 0 0 1 0 2ZM16 0C7.163 0 0 7.16 0 16s7.163 16 16 16 16-7.16 16-16S24.837 0 16 0Z"
+    />
+  </Svg>
+);
+
+export const CloseIcon = (props: SvgProps) => (
+  <Svg
+    fill="none"
+    className="w-4 h-4 md:w-8 md:h-8"
+    viewBox="0 0 32 32"
+    {...props}>
+    <Path
+      fill={props.fill}
+      fillRule="evenodd"
+      d="M21.657 20.24a1.002 1.002 0 1 1-1.415 1.42l-4.236-4.24-4.266 4.27c-.394.39-1.032.39-1.426 0a1.015 1.015 0 0 1 0-1.43l4.266-4.27-4.236-4.23a1.006 1.006 0 0 1 0-1.42 1 1 0 0 1 1.414 0l4.236 4.24 4.298-4.3a1.014 1.014 0 0 1 1.425 0c.393.4.393 1.03 0 1.43l-4.297 4.3 4.237 4.23ZM16 0C7.163 0 0 7.16 0 16s7.163 16 16 16 16-7.16 16-16S24.837 0 16 0Z"
+    />
+  </Svg>
+);
+
+export const SaveIcon = (props: SvgProps) => (
+  <Svg
+    fill="none"
+    className="w-12 h-12 md:w-24 md:h-24"
+    viewBox="0 0 24 24"
+    {...props}>
+    <G fill="#8F5F43">
+      <Path d="M17 20.75H7A2.75 2.75 0 0 1 4.25 18V6A2.75 2.75 0 0 1 7 3.25h7.5c.199 0 .39.08.53.22L19.53 8c.14.14.22.331.22.53V18A2.75 2.75 0 0 1 17 20.75Zm-10-16A1.25 1.25 0 0 0 5.75 6v12A1.25 1.25 0 0 0 7 19.25h10A1.25 1.25 0 0 0 18.25 18V8.81l-4.06-4.06H7Z" />
+      <Path d="M16.75 20h-1.5v-6.25h-6.5V20h-1.5v-6.5a1.25 1.25 0 0 1 1.25-1.25h7a1.25 1.25 0 0 1 1.25 1.25V20ZM12.47 8.75H8.53a1.29 1.29 0 0 1-1.28-1.3V4h1.5v3.25h3.5V4h1.5v3.45a1.29 1.29 0 0 1-1.28 1.3Z" />
+    </G>
+  </Svg>
+);
+
+export const AddToCartIcon = (props: SvgProps) => (
+  <Svg
+    fill="none"
+    className="w-6 h-6 md:w-12 md:h-12"
+    viewBox="0 0 24 24"
+    {...props}>
+    <G stroke={props.stroke || '#047857'} strokeWidth={1.5}>
+      <Path d="M7.5 18a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM16.5 18a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
+      <Path
+        strokeLinecap="round"
+        d="M13 13v-2m0 0V9m0 2h2m-2 0h-2M2 3l.261.092c1.302.457 1.953.686 2.325 1.231.372.545.372 1.268.372 2.715V9.76c0 2.942.063 3.912.93 4.826.866.914 2.26.914 5.05.914H12m4.24 0c1.561 0 2.342 0 2.894-.45.551-.45.709-1.214 1.024-2.743l.5-2.424c.347-1.74.52-2.609.076-3.186-.443-.577-1.96-.577-3.645-.577h-6.065m-6.066 0H7"
+      />
+    </G>
+  </Svg>
+);
+
+export const CheckoutIcon = (props: SvgProps) => (
+  <Svg
+    fill="none"
+    className="w-6 h-6 md:w-12 md:h-12"
+    viewBox="0 0 24 24"
+    {...props}>
+    <G fill="#FFFFFF">
+      <Path d="M21.25 22H2.75c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h18.5c.41 0 .75.34.75.75s-.34.75-.75.75Z" />
+      <Path
+        d="m20.59 13.7-7.23 7.23a3.618 3.618 0 0 1-5.12.01l-4.61-4.61L15.99 3.97l4.61 4.61a3.618 3.618 0 0 1-.01 5.12Z"
+        opacity={0.4}
+      />
+      <Path d="M15.99 3.97 3.62 16.33l-.91-.91a3.618 3.618 0 0 1 .01-5.12l7.23-7.23a3.618 3.618 0 0 1 5.12-.01l.92.91ZM12.89 17.6l-1.35 1.35c-.28.28-.73.28-1.01 0a.712.712 0 0 1 0-1.01l1.35-1.35c.28-.28.73-.28 1.01 0s.28.73 0 1.01ZM17.27 13.22l-2.69 2.69c-.28.28-.73.28-1.01 0a.712.712 0 0 1 0-1.01l2.69-2.69c.28-.28.73-.28 1.01 0 .27.28.27.73 0 1.01Z" />
+    </G>
+  </Svg>
+);
+
+export const TrashIcon = (props: SvgProps) => (
+  <Svg
+    fill="none"
+    className="w-5 h-5 md:w-10 md:h-10"
+    viewBox="0 0 24 24"
+    {...props}>
+    <G
+      stroke="#D02828"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}>
+      <Path d="M10 12v5M14 12v5M4 7h16M6 10v8a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-8M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2H9V5Z" />
+    </G>
+  </Svg>
+);
