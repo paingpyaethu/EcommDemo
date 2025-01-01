@@ -15,3 +15,7 @@ export async function resetAndNavigate(routeName: string) {
     }),
   );
 }
+
+export async function goBack() {
+  navigationRef.dispatch(CommonActions.goBack());
+}

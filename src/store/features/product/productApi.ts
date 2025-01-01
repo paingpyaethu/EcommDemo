@@ -58,13 +58,27 @@ export const productApi = api.injectEndpoints({
                 type: 'Products' as const,
                 id: product.id,
               })),
-              'Products',
+              {type: 'Products', id: 'LIST'},
             ]
           : ['Products'],
     }),
     getProductById: builder.query<IProductDetailData, number>({
       query: productId => `products/${productId}`,
       transformResponse: (response: IProductDetailResType) => response.data,
+    }),
+    createProduct: builder.mutation<IProductsResType, FormData>({
+      query: formData => ({
+        url: 'products',
+        method: 'POST',
+        body: formData,
+      }),
+      extraOptions: {maxRetries: 0},
+      async onQueryStarted(_, {dispatch, queryFulfilled}) {
+        try {
+          await queryFulfilled;
+          dispatch(api.util.invalidateTags([{type: 'Products', id: 'LIST'}]));
+        } catch (error) {}
+      },
     }),
   }),
 });
@@ -73,4 +87,5 @@ export const {
   useGetCategoriesQuery,
   useGetProductsByCategoryQuery,
   useGetProductByIdQuery,
+  useCreateProductMutation,
 } = productApi;

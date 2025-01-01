@@ -1,5 +1,5 @@
 import React, {useCallback, useMemo} from 'react';
-import {Pressable, StyleSheet, View} from 'react-native';
+import {Platform, Pressable, View} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import BottomSheet, {
   BottomSheetBackdrop,
@@ -17,6 +17,7 @@ import {
   SaveIcon,
 } from '@/utils/svg/icon.common';
 import {flatlistKeyExtractor} from '@/utils/helpers';
+import {cn} from '@/utils/twutil';
 
 interface ProductDetailBottomSheetProps {
   bottomSheetRef: React.RefObject<BottomSheet>;
@@ -100,11 +101,20 @@ const ProductDetailBottomSheet = ({
         </View>
       </BottomSheetView>
       {/* Color and Size Picker */}
-      <View className="flex-row justify-center -my-10 md:-my-3">
+      <View
+        className={cn(
+          'flex-row justify-center -my-7 md:-my-3',
+          Platform.OS === 'android' && 'my-4 md:my-8',
+        )}>
         <Picker
           selectedValue={color}
           onValueChange={itemValue => onSelectColor(itemValue)}
-          style={{width: '45%'}}
+          style={{
+            width: '45%',
+            marginRight: 10,
+            color: colorScheme === 'light' ? '#272422' : '#FFFFFF',
+            backgroundColor: Platform.OS === 'android' ?  colorScheme === 'light' ? '#e2e8f0' : '#374151' : '',
+          }}
           itemStyle={{
             fontSize: isTablet() ? 28 : 14,
             fontFamily: 'Montserrat-Bold',
@@ -124,7 +134,12 @@ const ProductDetailBottomSheet = ({
         <Picker
           selectedValue={size}
           onValueChange={itemValue => onSelectSize(itemValue)}
-          style={{width: '45%'}}
+          style={{
+            width: '45%',
+            marginRight: 10,
+            color: colorScheme === 'light' ? '#272422' : '#FFFFFF',
+            backgroundColor: Platform.OS === 'android' ?  colorScheme === 'light' ? '#e2e8f0' : '#374151' : '',
+          }}
           itemStyle={{
             fontSize: isTablet() ? 28 : 14,
             fontFamily: 'Montserrat-Bold',

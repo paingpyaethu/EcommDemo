@@ -10,12 +10,10 @@ import {
 import EmptyData from '@/components/atoms/common/EmptyData/EmptyData';
 import {isTablet} from 'react-native-device-info';
 import {HomeTabStackNavigationProp} from '@/types/navigation/root';
+import { useNavigation } from '@react-navigation/native';
 
-const ProductList = ({
-  navigation,
-}: {
-  navigation: HomeTabStackNavigationProp;
-}) => {
+const ProductList = () => {
+  const navigation = useNavigation<HomeTabStackNavigationProp>();
   const [categoryName, setCategoryName] = useState('All');
   const [page, setPage] = useState(1);
 

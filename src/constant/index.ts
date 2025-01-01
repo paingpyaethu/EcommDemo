@@ -33,3 +33,30 @@ export const productCarouselData = [
   {key: 2, image: require('@/assets/images/product/img-2.png')},
   {key: 3, image: require('@/assets/images/product/img-3.png')},
 ];
+
+export const categoryData = [
+  {id: 1, name: 'Fashion'},
+  {id: 2, name: 'Electronics'},
+  {id: 3, name: 'Health & Beauty'},
+  {id: 4, name: 'Sports'},
+  {id: 5, name: 'Books'},
+  {id: 6, name: 'Stationery'},
+]
+
+export const colorData = [
+  {id: 1, name: 'black', bgColor: '#000000'},
+  {id: 2, name: 'pink', bgColor: '#F0A8D0'},
+  {id: 3, name: 'purple', bgColor: '#87A2FF'},
+  {id: 4, name: 'white', bgColor: '#ffffff'},
+  {id: 5, name: 'red', bgColor: '#D21312'},
+  {id: 6, name: 'green', bgColor: '#03C988'},
+]
+
+export const sizeData = [
+  {id: 1, name: 'XS'},
+  {id: 2, name: 'S'},
+  {id: 3, name: 'M'},
+  {id: 4, name: 'L'},
+  {id: 5, name: 'XL'},
+  {id: 6, name: 'XXL'},
+]

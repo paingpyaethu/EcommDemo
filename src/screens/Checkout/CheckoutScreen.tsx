@@ -156,11 +156,12 @@ const CheckoutScreen = ({
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{
               paddingTop: isTablet() ? 32 : 16,
-              paddingBottom: isTablet() ? 64 : 46,
+              paddingBottom: isTablet() ? 200 : 100,
             }}
           />
         </View>
-        <View className="mx-5 md:mx-10">
+      </SafeScreen>
+      <View className="mx-5 md:mx-10 mb-6 md:mb-12">
           <ThemedButton onPress={form.handleSubmit(onSubmit)}>
             {isLoading ? (
               <ActivityIndicator
@@ -172,7 +173,6 @@ const CheckoutScreen = ({
             )}
           </ThemedButton>
         </View>
-      </SafeScreen>
     </FormProvider>
   );
 };

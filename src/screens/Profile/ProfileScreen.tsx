@@ -17,6 +17,9 @@ import {useTheme} from '@/context/ThemeProvider';
 import {useGetUserAccountInfoQuery} from '@/store/features/user/userApi';
 import {ContrastIcon} from '@/utils/svg/icon.common';
 import {SwitchOffIcon, SwitchOnIcon} from '@/utils/svg/icon.profile';
+import {useDispatch} from 'react-redux';
+import {clearData} from '@/store/features/user/userSlice';
+import {resetAndNavigate} from '@/utils/navigationUtil';
 
 const ProfileScreen = () => {
   const {colorScheme, toggleTheme, useSystemTheme, toggleSystemTheme} =
@@ -36,6 +39,7 @@ const ProfileScreen = () => {
     data?.image === null
       ? require('@/assets/images/profile-img.png')
       : {uri: `${PHOTO_URL_END_POINT}/${data?.image}`};
+  const dispatch = useDispatch();
 
   return (
     <SafeScreen>
@@ -71,12 +75,23 @@ const ProfileScreen = () => {
 
           {/* Use System Theme*/}
           <View className="flex-row items-center mx-10">
-            <ThemedText className="mr-3 md:mr-6" size={'md_16'}>Use System Theme</ThemedText>
+            <ThemedText className="mr-3 md:mr-6" size={'md_16'}>
+              Use System Theme
+            </ThemedText>
             <Pressable onPress={toggleSystemTheme}>
               {useSystemTheme ? <SwitchOnIcon /> : <SwitchOffIcon />}
             </Pressable>
           </View>
           {/* Use System Theme*/}
+
+          <Pressable
+            className="mt-auto bg-ecomm-text-error w-4/5 items-center justify-center mx-10 md:mx-20 mb-5 md:mb-10 py-3 md:py-6 rounded-md md:rounded-lg"
+            onPress={() => {
+              dispatch(clearData());
+              resetAndNavigate('AuthStack');
+            }}>
+            <ThemedText variant={'button'}>Logout</ThemedText>
+          </Pressable>
 
           <EditProfileModalSheet
             colorScheme={colorScheme}

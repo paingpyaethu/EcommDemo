@@ -7,3 +7,4 @@ export { default as CartScreen } from "./Cart/CartScreen";
 export { default as ProfileScreen } from "./Profile/ProfileScreen";
 export { default as ProductDetailScreen } from "./Home/ProductDetail/ProductDetailScreen";
 export { default as CheckoutScreen } from "./Checkout/CheckoutScreen";
+export { default as CreateProductScreen } from "./CreateProduct/CreateProductScreen";

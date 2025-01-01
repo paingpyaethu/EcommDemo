@@ -12,6 +12,7 @@ type RootStackParamList = {
   AuthStack: NavigatorScreenParams<AuthStackParamList>;
   BottomTabs: NavigatorScreenParams<BottomTabParamList>;
   Checkout: undefined;
+  CreateProduct: undefined;
 };
 
 type BottomTabParamList = {
@@ -34,7 +35,7 @@ type ProfileTabStackParamList = {
 type HomeTabStackNavigationProp = StackNavigationProp<HomeTabStackParamList>;
 
 type HomeScreenNavigationProp = CompositeNavigationProp<
-  StackNavigationProp<HomeTabStackParamList, 'HomeScreen'>,
+  StackNavigationProp<RootStackParamList, 'HomeScreen'>,
   BottomTabNavigationProp<BottomTabParamList>
 >;
 

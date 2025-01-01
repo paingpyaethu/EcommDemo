@@ -1,18 +1,28 @@
 import React from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {NavigationContainer, DefaultTheme, DarkTheme} from '@react-navigation/native';
-import {CheckoutScreen, OnboardingScreen} from '@/screens';
-import {createStackNavigator} from '@react-navigation/stack';
+import {
+  NavigationContainer,
+  DefaultTheme,
+  DarkTheme,
+} from '@react-navigation/native';
+import {CheckoutScreen, CreateProductScreen, OnboardingScreen} from '@/screens';
+import {
+  StackNavigationOptions,
+  createStackNavigator,
+} from '@react-navigation/stack';
 import {RootStackParamList} from '@/types/navigation/root';
 import {AuthStackNavigator} from './stacks';
 import {useSelector} from 'react-redux';
 import {RootState} from '@/store';
 import {navigationRef} from '@/utils/navigationUtil';
 import BottomTabNavigator from './tabs/BottomTabNavigator';
-import { useTheme } from '@/context/ThemeProvider';
+import {useTheme} from '@/context/ThemeProvider';
+import {Dimensions, Platform} from 'react-native';
+import {isTablet} from 'react-native-device-info';
+
+const {height} = Dimensions.get('window');
 
 const Stack = createStackNavigator<RootStackParamList>();
-
 
 const customLightTheme = {
   ...DefaultTheme,
@@ -31,7 +41,7 @@ const customDarkTheme = {
 };
 
 const ApplicationNavigator = () => {
-  const { colorScheme } = useTheme();
+  const {colorScheme} = useTheme();
   const {isAlreadyLaunch, isAuthenticated} = useSelector(
     (state: RootState) => state.user,
   );
@@ -49,10 +59,25 @@ const ApplicationNavigator = () => {
 
   const theme = colorScheme === 'dark' ? customDarkTheme : customLightTheme;
 
+  const headerOption: StackNavigationOptions = {
+    headerStyle: {
+      backgroundColor: colorScheme === 'light' ? 'white' : '#0D0D0D',
+      height: Platform.OS == 'ios' ? height * 0.12 : height * 0.08,
+    },
+    headerTintColor: colorScheme === 'light' ? '#272422' : 'white',
+    headerTitleStyle: {
+      fontFamily: 'Montserrat-Medium',
+      fontSize: isTablet() ? 28 : 14,
+    },
+    headerTitleAlign: 'center',
+  };
+
   return (
     <SafeAreaProvider>
       <NavigationContainer ref={navigationRef} theme={theme}>
-        <Stack.Navigator initialRouteName={initialRouteName}>
+        <Stack.Navigator
+          initialRouteName={initialRouteName}
+          screenOptions={{headerBackButtonDisplayMode: 'minimal'}}>
           <Stack.Screen
             name="Onboarding"
             component={OnboardingScreen}
@@ -69,6 +94,11 @@ const ApplicationNavigator = () => {
             options={{headerShown: false}}
           />
           <Stack.Screen name="Checkout" component={CheckoutScreen} />
+          <Stack.Screen
+            name="CreateProduct"
+            component={CreateProductScreen}
+            options={{...headerOption, headerTitle: 'Add Product'}}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
